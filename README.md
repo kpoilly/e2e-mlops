@@ -4,7 +4,7 @@
 
 This project demonstrates the development and deployment of a machine learning model from scratch, leveraging deep learning techniques and modern MLOps tools. The goal is to provide a reproducible, scalable, and easily accessible solution for end to end machine learning tasks, from data preprocessing and model training to deployment and maintenance.
 
-The project encompasses the entire lifecycle of a machine learning application, including data preprocessing, model development, experiment tracking, deployment via a secure API, and a user-friendly interface. Containerization with Docker ensures reproducibility, and the architecture is designed with scalability in mind.
+The project encompasses the entire lifecycle of a machine learning application, including data preprocessing, model development, experiment tracking, deployment via a secure API, monitoring and a user-friendly interface. Containerization with Docker ensures reproducibility, and the architecture is designed with scalability in mind.
 
 ## Key Features
 
