@@ -37,6 +37,7 @@ These containers are orchestrated using Docker Compose. DVC manages the data flo
 This project prioritizes reproducibility through:
 
 **Docker:** Ensures that all components run in isolated and consistent environments with defined dependencies.
+
 **DVC:** Tracks the data, code, and intermediate outputs of the machine learning pipeline, allowing you to reproduce specific versions of your model and results.
 
 ## Scalability
