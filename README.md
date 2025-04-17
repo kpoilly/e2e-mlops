@@ -1,4 +1,3 @@
-# e2e-mlops
 # End-to-End Machine Learning Project with Deep Learning and MLOps
 
 ## Overview
