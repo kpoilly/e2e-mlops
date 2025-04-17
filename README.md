@@ -48,7 +48,7 @@ For example, you can scale the API service horizontally by running multiple inst
 
 ## Model
 
-TDB
+Coming soon.
 
 ### Usecase
 ### Datasets
