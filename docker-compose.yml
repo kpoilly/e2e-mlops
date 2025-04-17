@@ -1,0 +1,90 @@
+version: '3.8'
+services:
+  mlflow:
+    build: ./docker/mlflow
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/app/mlruns
+    networks:
+      - app-network
+
+  preprocess:
+    build: ./docker/preprocess
+    volumes:
+      - data_volume:/app/data
+      - ./src:/app/src:ro
+    networks:
+      - app-network
+
+  hypersearch:
+    build: ./docker/hyperparameter_search
+    volumes:
+      - data_volume:/app/data:ro
+      - ./src:/app/src:ro
+      - mlflow_data:/app/mlruns
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+      - preprocess
+    networks:
+      - app-network
+
+  train:
+    build: ./docker/train
+    volumes:
+      - data_volume:/app/data:ro
+      - ./src:/app/src:ro
+      - mlflow_data:/app/mlruns
+      - models_volume:/app/models
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+      - preprocess
+      - hyperparameter_search
+    networks:
+      - app-network
+
+  api:
+    build: ./docker/api
+    ports:
+      - "8080:8080"
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+      - models_volume:/app/models:ro
+    depends_on:
+      - mlflow
+      - train
+    networks:
+      - app-network
+
+  streamlit:
+    build: ./docker/streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8080
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+  monitoring:
+    build: ./docker/monitoring
+    ports:
+      - "3000:3000"
+    
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mlflow_data:
+  data_volume:
+  models_volume:
