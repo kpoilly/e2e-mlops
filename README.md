@@ -42,7 +42,9 @@ This project prioritizes reproducibility through:
 
 ## Scalability
 
-The containerized architecture allows for easier scaling of individual components based on demand. For example, you can scale the API service horizontally by running multiple instances of the api container behind a load balancer (using tools like Kubernetes or Docker Swarm in a production environment). Similarly, resource-intensive tasks like training or hyperparameter search can be scaled by allocating more resources to their respective containers or by distributing the workload across multiple containers.
+The containerized architecture allows for easier scaling of individual components based on demand.
+
+For example, you can scale the API service horizontally by running multiple instances of the api container behind a load balancer (using tools like Kubernetes or Docker Swarm in a production environment). Similarly, resource-intensive tasks like training or hyperparameter search can be scaled by allocating more resources to their respective containers or by distributing the workload across multiple containers.
 
 ## Model
 
