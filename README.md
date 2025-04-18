@@ -14,7 +14,7 @@ The project encompasses the entire lifecycle of a machine learning application, 
 * **Containerized Architecture:** All components (MLflow, preprocessing, hyperparameter search, training, API, Streamlit) are containerized using Docker for easy setup and reproducibility.
 * **Secure API:** Provides a secure API (built with Flask or FastAPI) to interact with the deployed model.
 * **User-Friendly Interface:** Offers a graphical user interface built with Streamlit for easy interaction with the model.
-* **Monitoring:** Includes integration points for monitoring model performance and data drift (probably using Weights & Biases or Grafana, not decided yet).
+* **Monitoring:** Includes integration points for monitoring model performance and data drift (probably using Prometheus/Grafana, not decided yet).
 * **Reproducibility:** Emphasizes reproducibility through the use of Docker for environment encapsulation and DVC for data and pipeline management.
 * **Scalability:** The modular, containerized architecture allows for easier scaling of individual components.
 
