@@ -13,12 +13,12 @@ The user uploads an image. The system analyzes this image to extract its mood, o
 ## Key Features & MLOps Architecture
 
 *   **Complete MLOps Pipeline:** From data ingestion to monitored deployment.
-*   **Multimodal AI:** Utilization of Vision models (like CLIP) to understand images and Language Models (LLMs, e.g., via Mistral API) for semantic information extraction and tagging.
+*   **Multimodal AI:** Utilization of Vision models (like CLIP) to understand images and Language Models (LLMs) for semantic information extraction and tagging.
 *   **Deep Learning Approach:**
     *   Image embedding extraction (CLIP).
     *   Semantic tag generation from images (LLM).
     *   Feature engineering for music data (Spotify metadata, lyrics analysis).
-    *   (Potentially) Training a dedicated matching model to refine recommendations.
+    *   Training a dedicated matching model to refine recommendations.
 *   **Automated Data Pipeline (Apache Airflow):** For periodic collection and updating of music data (e.g., new Spotify releases), lyrics analysis, and music embedding generation.
 *   **Experiment Tracking & Model Management (MLflow):** To track experiments, version models (if fine-tuning or custom training), and manage their lifecycle.
 *   **Containerized Architecture (Docker & Docker Compose):** All services (API, image processing, recommendation, MLOps tools) will be containerized for portability and reproducibility. Migration to Kubernetes (Minikube/k3s locally) may be considered.
